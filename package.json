@@ -1,7 +1,7 @@
 {
   "name": "move-lines",
   "version": "0.0.0",
-  "description": "My priceless module",
+  "description": "Move around lines in a string.",
   "license": "MIT",
   "repository": "jamestalmage/move-lines",
   "author": {
@@ -13,10 +13,12 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-    "test": "xo && nyc ava"
+    "test": "xo && nyc ava",
+    "prepublish": "browserify -s moveLines -o browser.js index.js"
   },
   "files": [
-    "index.js"
+    "index.js",
+    "browser.js"
   ],
   "keywords": [
     ""
@@ -27,6 +29,7 @@
   },
   "devDependencies": {
     "ava": "^0.15.0",
+    "browserify": "^13.0.1",
     "coveralls": "^2.11.9",
     "nyc": "^6.4.0",
     "xo": "^0.14.0"
@@ -36,5 +39,8 @@
       "lcov",
       "text"
     ]
+  },
+  "xo": {
+    "ignores": "browser.js"
   }
 }
