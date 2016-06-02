@@ -30,9 +30,9 @@ function basicGroup(sep) {
 	test('up from the bottom', basic, abcd, 3, 3, -1, sp('abdc'));
 
 	// Multiple Lines Up
-	test('up to the top', abcde, 1, 2, -1, sp('bcade'));
-	test('up in the middle', abcde, 2, 3, -1, sp('acdbe'));
-	test('up from the bottom', abcde, 3, 4, -1, sp('abdec'));
+	test('up to the top', basic, abcde, 1, 2, -1, sp('bcade'));
+	test('up in the middle', basic, abcde, 2, 3, -1, sp('acdbe'));
+	test('up from the bottom', basic, abcde, 3, 4, -1, sp('abdec'));
 
 	// Single Line Down
 	test('down from the top', basic, abcd, 0, 0, 1, sp('bacd'));
@@ -40,9 +40,9 @@ function basicGroup(sep) {
 	test('down to the bottom', basic, abcd, 2, 2, 1, sp('abdc'));
 
 	// Multiple Lines Down
-	test('down from the top', abcde, 0, 1, 1, sp('cabde'));
-	test('down in the middle', abcde, 1, 2, 1, sp('adbce'));
-	test('down to the bottom', abcde, 2, 3, 1, sp('abecd'));
+	test('down from the top', basic, abcde, 0, 1, 1, sp('cabde'));
+	test('down in the middle', basic, abcde, 1, 2, 1, sp('adbce'));
+	test('down to the bottom', basic, abcde, 2, 3, 1, sp('abecd'));
 }
 
 basicGroup('\n');
