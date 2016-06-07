@@ -11,8 +11,8 @@ function moveLines(str, opts, oldPositions) {
 
 	var lines = splitLines(str, {preserveNewlines: true});
 
-	var startLine = opts.startLine;
-	var endLine = opts.endLine + 1;
+	var startLine = normalizeLineArg(opts.startLine, opts.startCharacter, lines);
+	var endLine = normalizeLineArg(opts.endLine, opts.endCharacter, lines) + 1;
 
 	var head = lines.slice(0, startLine);
 	var middle = lines.slice(startLine, endLine);
@@ -93,3 +93,17 @@ module.exports = function (str, opts) {
 
 module.exports.withPositions = moveLines;
 
+function normalizeLineArg(lineNum, position, lines) {
+	if (typeof lineNum === 'number') {
+		return lineNum;
+	}
+
+	var start = 0;
+
+	for (var i = 0; i < lines.length; i++) {
+		start += lines[i].length;
+		if (position < start) {
+			return i;
+		}
+	}
+}

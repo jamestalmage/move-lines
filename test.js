@@ -144,3 +144,15 @@ positionTests('\n');
 positionTests('\r\n');
 positionTests('\n', true);
 positionTests('\r\n', true);
+
+function alternateOptions(t, startCharacter, endCharacter, expected) {
+	t.is(fn('foo\nbar\nbaz\nquz', {startCharacter, endCharacter, move: 1}), expected);
+}
+
+alternateOptions.title = (title, startCharacter, endCharacter) =>
+	`alternateOptions: ${JSON.stringify({startCharacter, endCharacter, move: 1})}`;
+
+test(alternateOptions, 0, 0, 'bar\nfoo\nbaz\nquz');
+test(alternateOptions, 0, 3, 'bar\nfoo\nbaz\nquz');
+test(alternateOptions, 0, 4, 'baz\nfoo\nbar\nquz');
+test(alternateOptions, 4, 9, 'foo\nquz\nbar\nbaz');

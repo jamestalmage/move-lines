@@ -45,6 +45,7 @@ Moves lines of `input` around according to `options`, returns the resulting stri
 
 #### input
 
+*Required* <br>
 Type: `string`
 
 A string containing lines you want moved around
@@ -57,21 +58,42 @@ Type: `number`
 
 The starting line to be moved. Zero based. Inclusive.
 
+*Either this or `startLine` is required.*
+
+##### startCharacter
+
+Type: `number`
+
+Alternate to `startLine`, which will be inferred by computing the line number of `input[startCharacter]`.
+
+*Either this or `startLine` is required.*
+
 ##### endLine
 
 Type: `number`
 
 The ending line to be moved. Zero based. Inclusive.
 
+*Either this or `endCharacter` is required.*
+
+##### endCharacter
+
+Type: `number`
+
+Alternate to `endLine`, which will be inferred by computing the line number of `input[endCharacter]`.
+
+*Either this or `endLine` is required.*
+
 ##### move
 
+*Required* <br>
 Type: `number`
 
 How many lines to move. Negative numbers move lines up. Positive numbers move lines down.
 
 ### moveLines.withPositions(input, options, positions)
 
-Same as `moveLines()`, but it takes a hash of positions (all of which must be `numbers`).
+Same as `moveLines()`, but it takes a hash of `positions` (all of which must be `numbers`).
 
 The returned `Object` has two properties:
 
